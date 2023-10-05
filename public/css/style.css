@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz@9..40&family=Poppins&display=swap');
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+body {
+    background-color: #0D1A21;
+    color: #EFFBF5;
+}
+body::-webkit-scrollbar {
+    display: none;
+}
+header {
+    font-family: 'DM Sans', sans-serif;
+}
+.navigation-container {
+    overflow: hidden;
+    background-color: #22a6c1;
+}
+.navigation-container a {
+    float: left;
+    display: block;
+    color: #EFFBF5;
+    text-align: center;
+    padding: 1rem;
+    text-decoration: none;
+}
+.navigation-container a:hover {
+    color: #FFFFFF;
+}
+.return-container {
+    overflow: hidden;
+}
+.return-container a {
+    float: left;
+    display: block;
+    color: #EFFBF5;
+    text-align: center;
+    padding: 1rem;
+    text-decoration: none;
+}
+.return-title {
+    margin: 1rem 0;
+}
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+.header + .main {
+    padding-top: 3rem;
+}
+main {
+    font-family: 'Poppins', sans-serif;
+}
+.main-container {
+    margin: 1rem 3rem;
+    min-height: 10rem;
+    display: block;
+    overflow: hidden;
+}
+.form-container {
+    background-color: #172E3A;
+    color: #EFFBF5;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+.left-container {
+    float: left;
+    width: 73%;
+    height: 100%;
+    position: flex;
+}
+.right-container {
+    float: right;
+    width: 25%;
+    height: 100%;
+    position: flex;
+}
+.left-container + .right-container {
+    margin-left: 2%;
+}
+.input-container {
+    width: auto;
+}
+.preview-container {
+    height: 90%;
+}
+.input-button {
+    height: 10%;
+    width: 100%;
+}
+.card-container {
+    flex-wrap: wrap;
+    display: flex;
+}
+.card {
+    height: fit-content;
+    width: 10rem;
+    background-color: #172E3A;
+    color: #EFFBF5;
+    transition: 0.3s;
+    border-radius: 10px;
+    flex-basis: calc(25% - 10px);
+    margin: 10px 5px;
+}
+.image-container {
+    height: 13rem;
+    width: 100%;
+}
+.thumbnail {
+    height: 100%;
+    width: 100%;
+    display: block;
+    background-position: center;
+    background-size: cover;
+}
+.curve-top {
+    border-radius: 10px 10px 0 0;
+}
+.text-container {
+    display: block;
+    margin: 1rem;
+}
+.text-title, .text-subtitle, .text-description {
+    margin: 0;
+}
+.text-subtitle {
+    margin-bottom: 1rem;
+}
+.text-description {
+    display: -webkit-box;
+    -webkit-line-clamp: 8;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.table-container {
+    margin: 1rem 3rem;
+    min-height: 10rem;
+    display: block;
+    overflow: hidden;
+}
+table {
+    margin: 2rem 0;
+    color: #EFFBF5;
+    width: 100%;
+}
+table, th, td {
+    border-collapse: collapse;
+}
+th, td {
+    padding: 1rem;
+}
+thead tr {
+    background-color: #172E3A;
+}
+tbody tr:nth-child(odd) {
+    background-color: #1D3A49;
+}
+tbody tr:nth-child(even) {
+    background-color: #172E3A;
+}
+.image-table {
+    width: 15rem;
+    height: 10rem ;
+    padding: 1rem;
+}
+.button {
+    height: 2.5rem;
+    width: 7rem;
+    padding: 0.5rem 1rem;
+    font-size: large;
+    border-radius: 5px;
+    border-style: none;
+    display: block;
+    margin: 1rem 0;
+    cursor: pointer;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.add-button {
+    background-color: green;
+    color: white;
+    width: fit-content;
+}
+.delete-button {
+    background-color: red;
+    color: white;
+}
+.edit-button {
+    background-color: blue;
+    color: white;
+}
+.submit-button {
+    background-color: #F5BB00;
+    color: white;
+    float: right;
+}
+.update-button {
+    background-color: #F5BB00;
+    color: white;
+    float: right;
+}
+.image-preview {
+    height: 200px;
+    width: 100%;
+}
+label {
+    font-size: larger;
+}
+input, select {
+    font-size: medium;
+    padding: 5px;
+    width: 100%;
+    border-radius: 5px;
+}
+footer {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 2rem;
+    text-align: center;
+    font-weight: 700;
+    color: #EFFBF5;
+    background-color: #22a6c1;
+}
