@@ -11,7 +11,8 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 class GarageController extends Controller
 {
     public function homepage() {
-        return view('mygarage.homepage');
+        $cars = Cars::all();
+        return view('mygarage.homepage', compact(['cars']));
     }
     public function dashboard() {
         $cars = Cars::all();
@@ -39,15 +40,15 @@ class GarageController extends Controller
             $cars->images = $filename;
         }
         $cars->save();
-        return redirect()->back()->with('status','Car Added Successfully');
+        return redirect()->back();
     }
     public function edit($id){
         $cars = Cars::find($id);
         return view('mygarage.edit', compact(['cars']));
     }
-    public function update(Request $request, $id){
+    public function update(Request $request, $id) {
         $cars = Cars::find($id);
         $cars->update($request->all());
-        return redirect('/dashboard');
+        return redirect('mygarage.dashboard');
     }
 }

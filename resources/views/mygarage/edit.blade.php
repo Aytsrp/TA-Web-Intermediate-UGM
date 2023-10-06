@@ -19,7 +19,7 @@
     </header>
     <main>
         <div class="main-container form-container">
-            <form action="/dashboard/{{$cars->id}}" method="POST">
+            <form action="/dashboard/{{$cars->id}}" method="POST" enctype="multipart/form-data">
                 @method('PUT')
                 @csrf
                 <div class="left-container">
@@ -33,7 +33,7 @@
                     </div>
                     <div class="input-container">
                         <label for="year">Year</label><br>
-                        <input type="number" id="year" name="year" value="2023" min="1886" max="2023" value="{{$cars->year}}" required><br>
+                        <input type="number" id="year" name="year" min="1886" max="2023" value="{{$cars->year}}" required><br>
                     </div>
                     <div class="input-container">
                         <label for="generation">Generation</label><br>
@@ -46,7 +46,7 @@
                     <div class="input-container">
                         <label for="transmission">Transmission</label><br>
                         <select id="transmission" name="transmission" required>
-                            <option selected disabled hidden>{{$cars->transmission}}</option>
+                            <option value="{{$cars->transmission}}" selected disabled hidden>{{$cars->transmission}}</option>
                             <option value="Manual">Manual</option>
                             <option value="Automatic">Automatic</option>
                             <option value="Continuously Variable">Continuously Variable</option>
@@ -57,7 +57,7 @@
                     <div class="input-container">
                         <label for="bodytype">Bodytype</label><br>
                         <select id="bodytype" name="bodytype" class required>
-                            <option value="" selected disabled hidden>{{$cars->bodytype}}</option>
+                            <option value="{{$cars->bodytype}}" selected disabled hidden>{{$cars->bodytype}}</option>
                             <option value="Off-road vehicle">Off-road vehicle</option>
                             <option value="Cabriolet">Cabriolet</option>
                             <option value="Coupe">Coupe</option>
@@ -84,7 +84,7 @@
                     <div class="input-container">
                         <label for="fueltype">Fueltype</label><br>
                         <select id="fueltype" name="fueltype" required>
-                            <option value="" selected disabled hidden>{{$cars->fueltype}}</option>
+                            <option value="{{$cars->fueltype}}" selected disabled hidden>{{$cars->fueltype}}</option>
                             <option value="Petrol (Gasoline)">Petrol (Gasoline)</option>
                             <option value="Diesel">Diesel</option>
                             <option value="Electricity">Electricity</option>
@@ -103,7 +103,7 @@
                     <div class="input-container">
                         <label for="driverwheel">Driver Wheel</label><br>
                         <select id="driverwheel" name="drivewheel" required>
-                            <option value="" selected disabled hidden>{{$cars->drivewheel}}</option>
+                            <option value="{{$cars->drivewheel}}" selected disabled hidden>{{$cars->drivewheel}}</option>
                             <option value="Rear wheel drive">Rear wheel drive</option>
                             <option value="Front wheel drive">Front wheel drive</option>
                             <option value="All wheel drive (4x4)">All wheel drive (4x4)</option>
@@ -113,8 +113,8 @@
                 <div class="right-container">
                     <div class="preview-container input-container">
                         <label for="images">Images</label><br>
-                        <img src="{{asset('images/uploads'.$cars->images)}}" class="image-preview" id="img"><br>
-                        <input type="file" id="images" name="images" accept="image/png, image/jpg, image/jpeg" required>
+                        <img src="{{asset('images/uploads/'.$cars->images)}}" class="image-preview" id="output"><br>
+                        <input type="file" id="images input" name="images" accept="image/png, image/jpg, image/jpeg" onchange="loadFile(event)">
                     </div>
                     <div class="input-button">
                         <button type="submit" class="update-button button">

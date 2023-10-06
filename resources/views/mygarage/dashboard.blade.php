@@ -13,7 +13,7 @@
 <body>
     <header class="header">
         <nav class="navigation-container sticky">
-            <a href="/home">My Garage</a>
+            <a href="/">My Garage</a>
             <a href="/dashboard">Dashboard</a>
             <a href="#">Profile</a>
         </nav>
@@ -47,7 +47,7 @@
                     @foreach($cars as $car)
                     <tr>
                         <td class="image-table">
-                            <img src="{{URL::asset('images/uploads'.$car->images)}}" class="thumbnail">
+                            <img src="{{asset('images/uploads/'.$car->images)}}" class="thumbnail" loading="lazy">
                         </td>
                         <td class="brand-table">
                             {{$car->brand}}

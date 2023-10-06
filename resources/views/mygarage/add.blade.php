@@ -112,17 +112,14 @@
                 <div class="right-container">
                     <div class="preview-container input-container">
                         <label for="images">Images</label><br>
-                        <img src="{{asset('images/assets/unavailable-image.jpg')}}" class="image-preview" id="img"><br>
-                        <input type="file" id="images" name="images" accept="image/png, image/jpg, image/jpeg" required>
+                        <img src="{{asset('images/assets/unavailable-image.jpg')}}" class="image-preview" id="output"><br>
+                        <input type="file" id="images input" name="images" accept="image/png, image/jpg, image/jpeg" onchange="loadFile(event)" required>
                     </div>
                     <div class="input-button">
                         <button type="submit" class="submit-button button">
                             Submit
                         </button>
                     </div>
-                    @if (session('status'))
-                        <h6>{{session('status')}}</h6>
-                    @endif
                 </div>
             </form>
         </div>
