@@ -6,6 +6,7 @@ use App\Models\Cars;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 class GarageController extends Controller
@@ -48,7 +49,28 @@ class GarageController extends Controller
     }
     public function update(Request $request, $id) {
         $cars = Cars::find($id);
-        $cars->update($request->all());
+        $cars->brand = $request->input('brand');
+        $cars->model = $request->input('model');
+        $cars->year = $request->input('year');
+        $cars->generation = $request->input('generation');
+        $cars->engine = $request->input('engine');
+        $cars->transmission = $request->input('transmission');
+        $cars->bodytype = $request->input('bodytype');
+        $cars->fueltype = $request->input('fueltype');
+        if($request->hasFile('images')){
+            $destination = 'images/uploads/'.$cars->images;
+            if(File::exists($destination))
+            {
+                File::delete($destination);
+
+            }
+            $file = $request->file("images");
+            $extention = $file->getClientOriginalExtension();
+            $filename = time().'.'.$extention;
+            $file->move('images/uploads/',$filename);
+            $cars->images = $filename;
+        }
+        $cars->update();
         return redirect('mygarage.dashboard');
     }
 }

@@ -20,8 +20,8 @@
     <main>
         <div class="main-container form-container">
             <form action="/dashboard/{{$cars->id}}" method="POST" enctype="multipart/form-data">
-                @method('PUT')
                 @csrf
+                @method('PUT')
                 <div class="left-container">
                     <div class="input-container">
                         <label for="brand">Brand</label><br>
