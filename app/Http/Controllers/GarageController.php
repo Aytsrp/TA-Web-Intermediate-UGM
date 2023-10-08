@@ -11,18 +11,22 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 class GarageController extends Controller
 {
-    public function homepage() {
+    public function homepage()
+    {
         $cars = Cars::all();
         return view('mygarage.homepage', compact(['cars']));
     }
-    public function dashboard() {
+    public function dashboard()
+    {
         $cars = Cars::all();
         return view('mygarage.dashboard', compact(['cars']));
     }
-    public function add() {
+    public function add()
+    {
         return view('mygarage.add');
     }
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
         $cars = new Cars;
         $cars->brand = $request->input('brand');
         $cars->model = $request->input('model');
@@ -33,21 +37,23 @@ class GarageController extends Controller
         $cars->bodytype = $request->input('bodytype');
         $cars->fueltype = $request->input('fueltype');
         $cars->drivewheel = $request->input('drivewheel');
-        if($request->hasfile('images')){
+        if ($request->hasfile('images')) {
             $file = $request->file('images');
             $extention = $file->getClientOriginalExtension();
-            $filename = time().'.'.$extention;
-            $file->move('images/uploads/',$filename);
+            $filename = time() . '.' . $extention;
+            $file->move('images/uploads/', $filename);
             $cars->images = $filename;
         }
         $cars->save();
         return redirect()->back();
     }
-    public function edit($id){
+    public function edit($id)
+    {
         $cars = Cars::find($id);
         return view('mygarage.edit', compact(['cars']));
     }
-    public function update(Request $request, $id) {
+    public function update(Request $request, $id)
+    {
         $cars = Cars::find($id);
         $cars->brand = $request->input('brand');
         $cars->model = $request->input('model');
@@ -57,20 +63,20 @@ class GarageController extends Controller
         $cars->transmission = $request->input('transmission');
         $cars->bodytype = $request->input('bodytype');
         $cars->fueltype = $request->input('fueltype');
-        if($request->hasFile('images')){
-            $destination = 'images/uploads/'.$cars->images;
-            if(File::exists($destination))
+        if ($request->hasFile('images')) 
+        {
+            $destination = 'images/uploads/' . $cars->images;
+            if (File::exists($destination)) 
             {
                 File::delete($destination);
-
             }
             $file = $request->file("images");
             $extention = $file->getClientOriginalExtension();
-            $filename = time().'.'.$extention;
-            $file->move('images/uploads/',$filename);
+            $filename = time() . '.' . $extention;
+            $file->move('images/uploads/', $filename);
             $cars->images = $filename;
         }
         $cars->update();
-        return redirect('mygarage.dashboard');
+        return redirect()->back();
     }
 }
