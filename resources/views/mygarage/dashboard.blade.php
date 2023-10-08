@@ -79,7 +79,9 @@
                                     <i class="fa-solid fa-edit"></i> Edit
                                 </button>
                             </form>
-                            <form action="/dashboard/{{$car->id}}/delete">
+                            <form action="/dashboard/{{$car->id}}/delete" method="POST">
+                                @csrf
+                                @method('DELETE')
                                 <button type="submit" value="Delete" class="delete-button button">
                                     <i class="fa-solid fa-trash"></i> Delete
                                 </button>

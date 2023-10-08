@@ -63,11 +63,9 @@ class GarageController extends Controller
         $cars->transmission = $request->input('transmission');
         $cars->bodytype = $request->input('bodytype');
         $cars->fueltype = $request->input('fueltype');
-        if ($request->hasFile('images')) 
-        {
+        if ($request->hasFile('images')) {
             $destination = 'images/uploads/' . $cars->images;
-            if (File::exists($destination)) 
-            {
+            if (File::exists($destination)) {
                 File::delete($destination);
             }
             $file = $request->file("images");
@@ -77,6 +75,12 @@ class GarageController extends Controller
             $cars->images = $filename;
         }
         $cars->update();
+        return redirect('/dashboard');
+    }
+    public function destroy($id)
+    {
+        $cars = Cars::find($id);
+        $cars->delete();
         return redirect('/dashboard');
     }
 }
