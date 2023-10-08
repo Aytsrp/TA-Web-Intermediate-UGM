@@ -46,7 +46,7 @@
                     <div class="input-container">
                         <label for="transmission">Transmission</label><br>
                         <select id="transmission" name="transmission" required>
-                            <option value="{{$cars->transmission}}" selected disabled hidden>{{$cars->transmission}}</option>
+                            <option value="{{$cars->transmission}}" selected hidden>{{$cars->transmission}}</option>
                             <option value="Manual">Manual</option>
                             <option value="Automatic">Automatic</option>
                             <option value="Continuously Variable">Continuously Variable</option>
@@ -57,7 +57,7 @@
                     <div class="input-container">
                         <label for="bodytype">Bodytype</label><br>
                         <select id="bodytype" name="bodytype" class required>
-                            <option value="{{$cars->bodytype}}" selected disabled hidden>{{$cars->bodytype}}</option>
+                            <option value="{{$cars->bodytype}}" selected hidden>{{$cars->bodytype}}</option>
                             <option value="Off-road vehicle">Off-road vehicle</option>
                             <option value="Cabriolet">Cabriolet</option>
                             <option value="Coupe">Coupe</option>
@@ -84,7 +84,7 @@
                     <div class="input-container">
                         <label for="fueltype">Fueltype</label><br>
                         <select id="fueltype" name="fueltype" required>
-                            <option value="{{$cars->fueltype}}" selected disabled hidden>{{$cars->fueltype}}</option>
+                            <option value="{{$cars->fueltype}}" selected hidden>{{$cars->fueltype}}</option>
                             <option value="Petrol (Gasoline)">Petrol (Gasoline)</option>
                             <option value="Diesel">Diesel</option>
                             <option value="Electricity">Electricity</option>
@@ -103,7 +103,7 @@
                     <div class="input-container">
                         <label for="driverwheel">Driver Wheel</label><br>
                         <select id="driverwheel" name="drivewheel" required>
-                            <option value="{{$cars->drivewheel}}" selected disabled hidden>{{$cars->drivewheel}}</option>
+                            <option value="{{$cars->drivewheel}}" selected hidden>{{$cars->drivewheel}}</option>
                             <option value="Rear wheel drive">Rear wheel drive</option>
                             <option value="Front wheel drive">Front wheel drive</option>
                             <option value="All wheel drive (4x4)">All wheel drive (4x4)</option>

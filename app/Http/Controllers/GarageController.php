@@ -77,6 +77,6 @@ class GarageController extends Controller
             $cars->images = $filename;
         }
         $cars->update();
-        return redirect()->back();
+        return redirect('/dashboard');
     }
 }
